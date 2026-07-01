@@ -1,5 +1,3 @@
-# 🌌 StarGazer
-
 <p align="center">
   <img src="Resources/banner.png" alt="StarGazer Banner" width="100%">
 </p>
