@@ -17,7 +17,15 @@ function LoadData(date = ""){
         controller.abort();
     }, 7000);
 
-    fetch(query,{signal: controller.signal}).then(Response=>Response.json()).then(data => {
+    fetch(query,{signal: controller.signal})
+    .then(
+        
+        Response=>{
+            if (!Response.ok) 
+                {throw new Error(`NASA API returned ${Response.status}`);}
+            return Response.json()
+        }
+    ).then(data => {
         exploreBtn.innerHTML = "Explore";
         clearTimeout(timeout);
         let media;
@@ -25,26 +33,50 @@ function LoadData(date = ""){
             media = `<img src="${data.url}">`;
         }
         else if (data.url.includes("youtube")){
-            // Implement Youtube Case
+            media = `
+            <iframe
+                src="${data.url}"
+                allowfullscreen>
+            </iframe>`;
         }
         else {
             media = `<video src="${data.url}" controls></video>`;
         }
-        
+        console.log(data)
         document.querySelector("#app").innerHTML = `
         <div class = "container"><h1>${data.title}</h1>
+        <h3>Date : ${data.date}</h3>
         ${media}
         <p>${data.explanation}</p></div>`;
         loading.style.display = "none";
         app.style.display = "block";
         ;
     }).catch(err => {
-        exploreBtn.innerHTML = "Explore";
-        clearTimeout(timeout);
-        document.querySelector("#app").innerHTML = `
-        <div class = "container"><p>Error: ${err.message}, Try Refreshing The Page</p>
-        <h1>Sowwy 😔 </h1></div>`;
-    });
+
+    clearTimeout(timeout);
+    exploreBtn.innerHTML = "Explore";
+
+    let message;
+
+    if (err.name === "AbortError") {
+        message = "The request timed out. NASA is taking too long to respond.";
+    }
+    else if (err instanceof TypeError) {
+        message = "Unable to connect. Please check your internet connection.";
+    }
+    else {
+        message = err.message;
+    }
+
+    document.querySelector("#app").innerHTML = `
+        <div class="container">
+            <h1>Something went wrong</h1>
+            <p>${message}</p>
+        </div>`;
+
+    loading.style.display = "none";
+    app.style.display = "block";
+});
 }
 
 const datePicker = document.getElementById("datePicker");
@@ -61,4 +93,3 @@ exploreBtn.addEventListener("click", () => {
     exploreBtn.innerHTML="Loading..."
     LoadData(selectedDate);
 });
-

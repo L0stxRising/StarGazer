@@ -174,3 +174,4 @@ StarGazer was created to make exploring NASA's Astronomy Picture of the Day simp
 <p align="center">
 Made with ❤️ using the NASA APOD API.
 </p>
+
