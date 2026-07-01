@@ -2,12 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nasawebsite</title>
+    <title>StarGazer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Black+Ops+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
   </head>
   <body>
-    <div id="app"></div>
+
+    <div id="loading">
+      <img src="/Resources/banner.png" alt="StarGazer Logo" style="max-width: 100%; height: auto; display: block; object-fit:cover">
+      <h1>Exploring the cosmos</h1>
+      <p>Loading...</p>
+    </div>
+
+
+    <center>
+      <div id="main" style="display: none;">
+        <!-- <img src="/Resources/banner.png" alt="Stargazer Banner" style="max-width: 100%; height: auto; display: block; object-fit:cover"> -->
+          <div id="app"></div>
+      </div>
+      <input
+        type="date"
+        id="datePicker"
+        min="1995-06-16"
+        max="">
+      <button id = "btn">Explore</button>
+    </center>
+
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
