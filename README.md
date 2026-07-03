@@ -4,7 +4,6 @@
 
 A simple and minimal NASA's APOD (Astronomy Picture of the Day) website with a star background animation made using JavaScript and HTML's Canvas feature.
 
----
 
 ### Features
 * **Error Handling** - Handles errors thrown by the NASA API key.
@@ -15,12 +14,13 @@ A simple and minimal NASA's APOD (Astronomy Picture of the Day) website with a s
 * **Calendar Feature** - allows users to input any date they want and see NASA's APOD for that day.
 * **Secure Environment** - Uses environment variables to prevent credential leaks.
 
----
 
 ### Stack
 * **Frontend:** HTML, CSS, JavaScript
 * **Tooling:** Vite
 * **Deployment:** GitHub Pages
+  
+Right Now the main problem is probably the fail rate of the fetching. NASA API Connection fails are sadly often.
 
 ---
 
