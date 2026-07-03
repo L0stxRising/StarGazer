@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Resources/banner.png" alt="StarGazer Banner" width="100%">
+  <img src="Resources/ScreenShot.png" alt="StarGazer Banner" width="100%">
 </p>
 
 A simple and minimal NASA's APOD (Astronomy Picture of the Day) website with a star background animation made using JavaScript and HTML's Canvas feature.
