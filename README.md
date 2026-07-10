@@ -22,6 +22,10 @@ A simple and minimal NASA's APOD (Astronomy Picture of the Day) website with a s
   
 Right Now the main problem is probably the fail rate of the fetching. NASA API Connection fails are sadly often.
 
+### AI Usage
+* Used AI To Make Some **Stylistic Elements** like the Logo
+* Took Some Help From AI in Making the **Starry Background Animation**
+
 ---
 
 ### Getting Started
